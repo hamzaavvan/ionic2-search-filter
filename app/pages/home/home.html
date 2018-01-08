@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>
+      Ionic Search
+    </ion-title>
+
+    <ion-buttons end>
+		<button ion-button>Click</button>
+	</ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home-page">
+ 	<ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()">
+ 	</ion-searchbar>
+
+ 	<div *ngIf="searching" class="spinner-container">
+ 		<ion-spinner icon="spiral"></ion-spinner>
+ 	</div>
+	
+	<ion-list>
+		<button ion-btn *ngFor="let item of items">
+			<ion-item-content>
+					{{ item.title }}
+			</ion-item-content>
+		</button>
+	</ion-list>
+</ion-content>
